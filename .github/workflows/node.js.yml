@@ -51,12 +51,12 @@ jobs:
     - name: Run npm ui tests
       run: npm run test:ui
 
-deploy:
-  needs: run-ui-tests
-  runs-on: ubuntu-latest
-  steps:
-      - uses: actions/checkout@v3
-      - uses: JorgeLNJunior/render-deploy@v1.4.4
-        with:
-          service_id: ${{ secrets.RENDER_SERVICE_ID }}
-          api_key: ${{ secrets.RENDER_API_KEY }}
+  deploy-prod:
+    needs: run-ui-tests
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v3
+        - uses: JorgeLNJunior/render-deploy@v1.4.4
+          with:
+            service_id: ${{ secrets.RENDER_SERVICE_ID }}
+            api_key: ${{ secrets.RENDER_API_KEY }}
