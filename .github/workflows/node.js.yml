@@ -28,8 +28,6 @@ jobs:
       run: npm run test:unit
     - name: Display Softuni username
       run: echo "valeriaii"
-    - name: Run npm ui tests
-      run: npm run test:ui
 
   run-ui-tests:
     needs: build_test
